@@ -1,6 +1,6 @@
 # Project: Expense Tracker
 
-# Installment: 1
+# Installment: 3
 
 # Author: Aris Clyde D. Solijon
 
@@ -22,21 +22,36 @@ print(f"{'[4] Exit':<25}(coming soon)")
 name = input("What's your name? ")
 print(f"Welcome, {name}! Let's log two expenses.")
 
+subtotal = 0
+
 item1 = input("First expense? ")
 amount1 = float(input("Amount? "))
+subtotal += amount1
 
 item2 = input("Second expense? ")
 amount2 = float(input("Amount? "))
+subtotal += amount2
 
-total = amount1 + amount2
-average = total / 2
+average = subtotal / 2
+
+tax_percent = float(input("Tax rate %? "))
+tax = subtotal * (tax_percent / 100)
+total = subtotal + tax
+
+budget = float(input("Your budget? "))
+over_budget = total > budget
+left = budget - total
 
 print("-" * 40)
 print("SUMMARY")
 print(f" - {item1}: ${amount1}")
 print(f" - {item2}: ${amount2}")
-print(f"Total spent:\t${total}")
+print(f"Subtotal:\t${subtotal}")
 print(f"Average:\t${average}")
+print(f"Tax ({tax_percent}%):\t${tax}")
+print(f"Grand total:\t${total}")
+print(f"Over budget?\t{over_budget}")
+print(f"Left in budget:\t${left}")
 print("-" * 40)
 
-print("Made by: Aris Clyde D. Solijon | Installment 2")
+print(f"Made by: Aris Clyde D. Solijon | Installment 3")
